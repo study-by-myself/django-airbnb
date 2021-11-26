@@ -78,3 +78,6 @@ class Room(core_models.TimeStampedModel):
     amenities = models.ManyToManyField(Amenity, blank=True)
     facilities = models.ManyToManyField(Facility, blank=True)
     house_rules = models.ManyToManyField(HouseRule, blank=True)
+
+    def __str__(self):
+        return self.name
