@@ -69,7 +69,7 @@ class Room(core_models.TimeStampedModel):
     guests = models.IntegerField()
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
-    bath = models.IntegerField()
+    baths = models.IntegerField()
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
@@ -78,3 +78,6 @@ class Room(core_models.TimeStampedModel):
     amenities = models.ManyToManyField(Amenity, blank=True)
     facilities = models.ManyToManyField(Facility, blank=True)
     house_rules = models.ManyToManyField(HouseRule, blank=True)
+
+    def __str__(self):
+        return self.name
