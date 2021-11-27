@@ -28,7 +28,10 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
     )
 
-    list_filter = ()
+    list_filter = (
+        "country",
+        "city",
+    )
 
 
 @admin.register(models.Photo)
