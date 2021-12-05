@@ -8,4 +8,6 @@ class ListAdmin(admin.ModelAdmin):
 
     list_display = ("name", "user", "count_rooms")
 
-    search_filter = ("name",)
+    search_fields = ("name",)
+
+    filter_horizontal = ("rooms",)
