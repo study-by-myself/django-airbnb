@@ -6,7 +6,10 @@ from . import models
 class ItemAdmin(admin.ModelAdmin):
     """Item Admin Definition"""
 
-    pass
+    list_display = ("name", "used_by")
+
+    def used_by(self, obj):
+        return obj.rooms.count()
 
 
 # Register your models here.
@@ -43,6 +46,8 @@ class RoomAdmin(admin.ModelAdmin):
         "check_in",
         "check_out",
         "instant_book",
+        "count_amenities",
+        "count_photos",
     )
 
     ordering = ("name", "price", "bedrooms")
@@ -67,6 +72,9 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_amentities(self, obj):
         return obj.amenities.count()
+
+    def count_photos(self, obj):
+        return obj.photos.count()
 
 
 @admin.register(models.Photo)
