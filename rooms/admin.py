@@ -29,8 +29,14 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
+        "instant_book",
         "country",
         "city",
+    )
+
+    search_fields = (
+        "city",
+        "host__username",
     )
 
 
