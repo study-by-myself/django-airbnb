@@ -38,7 +38,7 @@ class RoomAdmin(admin.ModelAdmin):
                 "fields": ("amenities", "facilities", "house_rules"),
             },
         ),
-        ("Last Details", {"fields": "host"}),
+        ("Last Details", {"fields": ("host",)}),
     )
 
     list_display = (
@@ -80,7 +80,7 @@ class RoomAdmin(admin.ModelAdmin):
 
     filter_horizontal = ("amenities", "facilities", "house_rules")
 
-    def count_amentities(self, obj):
+    def count_amenities(self, obj):
         return obj.amenities.count()
 
     def count_photos(self, obj):
