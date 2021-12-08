@@ -39,7 +39,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["django_countries"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed"]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
@@ -141,3 +141,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # custom default user model
 # https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = f"{BASE_DIR}/uploads"
+
+MEDIA_URL = "/media/"
