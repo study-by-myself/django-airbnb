@@ -1,6 +1,8 @@
 from django.utils import timezone
+from django.urls import reverse
 from django.views.generic import ListView
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import redirect, render
 from . import models
 
 # Create your views here.
@@ -22,5 +24,8 @@ class HomeView(ListView):
 
 
 def room_detail(request, pk):
-    print(pk)
-    return render(request, "rooms/detail.html")
+    try:
+        room = models.Room.objects.get(pk=pk)
+    except models.Room.DoesNotExist:
+        raise Http404()
+    return render(request, "rooms/detail.html", context={"room": room})
